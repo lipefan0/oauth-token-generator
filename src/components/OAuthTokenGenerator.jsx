@@ -14,8 +14,9 @@ const OAuthTokenGenerator = () => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
   const AUTH_URL = "https://www.bling.com.br/Api/v3/oauth/authorize";
-  const REDIRECT_URI = "http://localhost:8080/callback";
+  const REDIRECT_URI = `${API_URL}/callback`;
 
   useEffect(() => {
     const searchParams = new URLSearchParams(window.location.search);
@@ -66,7 +67,7 @@ const OAuthTokenGenerator = () => {
     try {
       setLoading(true);
       
-      const response = await fetch('http://localhost:8080/exchange-token', {
+      const response = await fetch(`${API_URL}/exchange-token`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

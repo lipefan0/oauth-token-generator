@@ -1,13 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    async rewrites() {
-      return [
-        {
-          source: '/callback',
-          destination: 'http://localhost:8080/callback',
-        },
-      ];
-    },
+  reactStrictMode: true,
+  async rewrites() {
+    return [];
   }
-  
-  module.exports = nextConfig;
+};
+
+export default nextConfig;
