@@ -1,18 +1,24 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  async rewrites() {
-    return [];
-  },
-  // Suporte ao App Router
   experimental: {
-    appDir: true
+    appDir: true,
   },
-  // Otimizações de imagem
-  images: {
-    domains: [],
-    unoptimized: true
-  }
+  async redirects() {
+    return [
+      {
+        source: '/callback',
+        has: [
+          {
+            type: 'query',
+            key: 'code',
+          },
+        ],
+        permanent: false,
+        destination: '/?code=:code&state=:state',
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
