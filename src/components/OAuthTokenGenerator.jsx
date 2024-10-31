@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Alert, AlertDescription } from '@/components/ui/alert';
@@ -106,6 +106,10 @@ const OAuthTokenGenerator = () => {
       <Card>
         <CardHeader>
           <CardTitle>Gerador de Token OAuth</CardTitle>
+          <CardDescription>Para conseguir gerar o token, deve adicionar o seguinte link no campo Link de redirecionamento:</CardDescription>
+          <CardDescription>
+            <code>https://oauth-token-generator-server.onrender.com/callback</code>
+          </CardDescription>
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
